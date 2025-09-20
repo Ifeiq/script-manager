@@ -214,8 +214,41 @@ def main(page: ft.Page):
                     content=ft.ElevatedButton(text="Conectar em um dispositivo", color="blue", on_click=lambda e: connect(page, main_widgets)),
                     alignment=ft.alignment.center,
                 ),
-                
+                ft.Container(
+                    content=ft.ElevatedButton(text="Criar script", color="blue", on_click=lambda e: create_script(page, main_widgets)),
+                    alignment=ft.alignment.center,
+                ),
+                ft.Container(
+                    content=ft.ElevatedButton(text="Configurações", color="blue", on_click=lambda e: settings(page, main_widgets)),
+                    alignment=ft.alignment.center,
+                ),
+                ft.Container(
+                    content=ft.Dropdown(
+                        label="Selecione um script",
+                        options=[
+                            ft.dropdown.Option("Script 1"),
+                            ft.dropdown.Option("Script 2"),
+                            ft.dropdown.Option("Script 3"),
+                        ],
+                        #on_change=lambda e: open_app(page, main_widgets, e.control.value) if e.control.value else None,
+                        filled=True,
+                        color="white",
+                        bgcolor="#1976d2",
+                        border_color="#1565c0",
+                        border_radius=12,
+                        focused_border_color="#42a5f5",
+                        hint_text="Escolha um script...",
+                        text_style=ft.TextStyle(size=16, color="white"),
+                        width=220,
+                    ),
+                    alignment=ft.alignment.center,
+                    padding=ft.padding.only(top=10, bottom=10),
+                ),
             ],
+            alignment=ft.alignment.center,
+        ),
+        ft.Container(
+            content=ft.ElevatedButton(text="Executar", color="blue", on_click=lambda e: execute(page, main_widgets)),
             alignment=ft.alignment.center,
         ),
     ]
